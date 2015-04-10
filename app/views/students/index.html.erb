@@ -1,0 +1,11 @@
+<h1>Student list</h1>
+
+<% binding.pry %>
+<ul>
+	<% @students.each do |student| %>
+	<li>
+		<h1><%= student.full_name %></h1>
+		<h2><%= student.email %></h2>
+	</li> 
+	<% end %>
+</ul>
