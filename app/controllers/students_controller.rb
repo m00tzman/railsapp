@@ -10,10 +10,13 @@ class StudentsController < ApplicationController
 
 	def destroy
 		@student = Student.find_by_id(params[:id])
-		binding.pry
-		if @student
-			@student.destroy
-			redirect_to students_path
+
+		if @student.destroy
+			flash[:notice] = "#{@student.full_name} was successfully deleted!"
+		else
+			flash[:alert] = "There was an error while attempting to delete this student."
 		end
+
+		redirect_to students_path
 	end
 end
