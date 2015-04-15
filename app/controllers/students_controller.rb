@@ -8,6 +8,23 @@ class StudentsController < ApplicationController
 		@student = Student.find_by_id(params[:id])
 	end
 
+	def new
+		@student = Student.new
+	end
+
+	def create
+		@student = Student.new(params[:student])
+
+		if @student.save
+			redirect_to student_path(@student), notice: "Student was added successfully" 
+			#easier way than what you did in destroy
+		else
+			flash[:alert] = "There was an error creating the student"
+			render :new
+			#spits you back to page
+		end
+	end
+
 	def destroy
 		@student = Student.find_by_id(params[:id])
 
@@ -19,4 +36,5 @@ class StudentsController < ApplicationController
 
 		redirect_to students_path
 	end
+
 end

@@ -3,7 +3,7 @@
 <h2><%= @student.full_name %></h2>
 <h3><%= @student.hero %></h3>
 <h4><%= @student.email %></h4>
-<h4><%= @student.phone %></h4>
+<h4><%= formatted_phone_number(@student.phone) %></h4>
 <h5><span>Created: </span><%= time_ago_in_words(@student.created_at) %> ago</h5>
 
 <%= link_to "Back to Student List", students_path %>
