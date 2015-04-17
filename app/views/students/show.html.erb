@@ -7,4 +7,14 @@
 <h4><%= formatted_phone_number(@student.phone) %></h4>
 <h5><span>Created: </span><%= time_ago_in_words(@student.created_at) %> ago</h5>
 
+<h2><%= @student.full_name %>'s projects</h2>
+
+<% @projects.each do |project| %>
+	<ul>
+		<li>
+			<%= project.name %>
+		</li>
+	</ul>
+<% end %>
+
 <%= link_to "Back to Student List", students_path %>

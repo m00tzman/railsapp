@@ -1,0 +1,18 @@
+<%= form_for @student do |f| %>
+	<%= f.label :email, "Email Address" %>
+	<%= f.text_field :email %> <br>
+
+	<%= f.label :full_name %>
+	<%= f.text_field :full_name %> <br>
+
+	<%= f.label :hero %>
+	<%= f.text_field :hero %> <br>
+
+	<%= f.label :phone %>
+	<%= f.text_field :phone %> <br><br>
+
+	<%= f.submit %><br><br>
+
+	<%= link_to "Back to Student List", students_path %>
+
+<% end %>	

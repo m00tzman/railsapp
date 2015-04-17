@@ -6,6 +6,7 @@ class StudentsController < ApplicationController
 
 	def show
 		@student = Student.find_by_id(params[:id])
+		@projects = @student.projects
 	end
 
 	def new
@@ -18,14 +19,6 @@ class StudentsController < ApplicationController
 
 	def update
 		@student = Student.find_by_id(params[:id])
-
-		# if student is found
-		# call update attributes on student and pass in field values
-		# show flash message confirming successful update
-		# redirect to index page
-		# if student is not found
-		# render :edit page with flash message
-		# call update_attributes on
 
 		if @student.update_attributes(params[:student])
 			redirect_to students_path, notice: "Student was updated successfully"
@@ -58,6 +51,6 @@ class StudentsController < ApplicationController
 		end
 
 		redirect_to students_path
-	end
+end
 
 end
