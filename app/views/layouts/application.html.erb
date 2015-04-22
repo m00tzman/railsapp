@@ -10,6 +10,14 @@
 	<%= flash[:notice] if flash[:notice] %>
 	<%= flash[:alert] if flash[:alert] %>
 
+	<% if current_user %>
+		<%= current_user.email %>
+		<span>
+			<%= link_to "Logout", logout_path, method: :delete %>
+		</span>
+	<% else %>
+		<%= link_to "Login", login_path %>
+	<% end %>
 
 <%= yield %>
 

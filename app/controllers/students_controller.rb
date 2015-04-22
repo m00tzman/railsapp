@@ -20,7 +20,7 @@ class StudentsController < ApplicationController
 	def update
 		@student = Student.find_by_id(params[:id])
 
-		if @student.update_attributes(params[:student])
+		if @student.update_attributes(student_params)
 			redirect_to students_path, notice: "Student was updated successfully"
 		else
 			flash[:alert] = "There was an error modifying the student"
@@ -29,7 +29,7 @@ class StudentsController < ApplicationController
 	end
 
 	def create
-		@student = Student.new(params[:student])
+		@student = Student.new(student_params)
 
 		if @student.save
 			redirect_to student_path(@student), notice: "Student was added successfully" 
@@ -51,6 +51,12 @@ class StudentsController < ApplicationController
 		end
 
 		redirect_to students_path
-end
+	end
+
+	private
+
+	def student_params
+		params.require(:student).permit(:email, :full_name, :phone, :hero)
+	end
 
 end

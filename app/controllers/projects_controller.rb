@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def create
-		@project = Project.new(params[:project])
+		@project = Project.new(project_params)
 
 		if @project.save
 			redirect_to project_path(@project), notice: "Project was added successfully" 
@@ -44,7 +44,7 @@ class ProjectsController < ApplicationController
 	def update
 		@project = Project.find_by_id(params[:id])
 
-		if @project.update_attributes(params[:project])
+		if @project.update_attributes(project_params)
 			redirect_to projects_path, notice: "Project was updated successfully"
 		else
 			flash[:alert] = "There was an error modifying the Project"
@@ -52,4 +52,7 @@ class ProjectsController < ApplicationController
 		end
 	end
 
+	def project_params
+		params.require(:project).permit(:name)
+	end
 end
