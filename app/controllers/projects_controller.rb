@@ -1,4 +1,7 @@
 class ProjectsController < ApplicationController
+
+	before_action :authorize
+
 	def index
 		if params[:search]
 			@projects = Project.search(params[:search])

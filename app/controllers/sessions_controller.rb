@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+	before_action :authorize, only: [:destroy]
+	
 	def new 
 	end
 
