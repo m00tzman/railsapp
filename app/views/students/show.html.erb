@@ -16,5 +16,19 @@
 		</li>
 	</ul>
 <% end %>
+<br>
+<br>
+
+<h2><%= @student.full_name %>'s projects</h2>
+
+<% @student.courses.each do |course| %>
+<ul>
+	<li>
+		<%= course.name %>
+	</li>
+</ul>
+<% end %>
+<br>
+<br>
 
 <%= link_to "Back to Student List", students_path %>

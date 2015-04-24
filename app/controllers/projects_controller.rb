@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
 
-	before_action :authorize
+	before_action :authorize, except: :index
 
 	def index
 		if params[:search]
@@ -54,6 +54,8 @@ class ProjectsController < ApplicationController
 			render :edit
 		end
 	end
+
+private
 
 	def project_params
 		params.require(:project).permit(:name)

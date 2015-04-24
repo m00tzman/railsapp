@@ -9,6 +9,7 @@ class StudentsController < ApplicationController
 	def show
 		@student = Student.find_by_id(params[:id])
 		@projects = @student.projects
+		@courses = @student.courses
 	end
 
 	def new
@@ -58,7 +59,7 @@ class StudentsController < ApplicationController
 	private
 
 	def student_params
-		params.require(:student).permit(:email, :full_name, :phone, :hero)
+		params.require(:student).permit(:email, :full_name, :phone, :hero, :course_ids => [])
 	end
 
 end

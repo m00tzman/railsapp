@@ -11,6 +11,8 @@
 	<%= f.label :phone %>
 	<%= f.text_field :phone %> <br><br>
 
+	<%= collection_check_boxes(:student, :course_ids, Course.all, :id, :name) %> <br>
+
 	<%= f.submit %><br><br>
 
 	<%= link_to "Back to Student List", students_path %>
