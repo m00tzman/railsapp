@@ -22,4 +22,9 @@ test:
 
 production:
   <<: *default
+  adapter: postgresql
   database: db/production.sqlite3
+  pool: 25
+  datbase: school_app_production
+  username: admin
+  password:
