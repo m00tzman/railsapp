@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
 
-	before_action :authorize
+	before_action :authenticate_user!, except: [:index]
 
 	def index
 		@students = Student.all

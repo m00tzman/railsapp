@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
-resources :projects
-resources :students
+  devise_for :users
 
-get '/search', to: 'projects#index'
-post '/login', to: 'sessions#create'
-get '/login', to: 'sessions#new'
-delete '/logout', to: 'sessions#destroy' 
+  devise_scope :user do
+  	get "sign_in", to: "devise/sessions#new"
+  end
 
-root 'home#show'
+	resources :projects
+	resources :students
+
+	get '/search', to: 'projects#index'
+	# post '/login', to: 'sessions#create'
+	# get '/login', to: 'sessions#new'
+	# delete '/logout', to: 'sessions#destroy' 
+
+	root 'home#show'
 end

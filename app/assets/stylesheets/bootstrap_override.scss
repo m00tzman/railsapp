@@ -1,0 +1,16 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+	padding-top: 70px
+}
+
+nav{
+	ul.nav{
+		padding-top: 16px;
+		.user-email{
+			color: #fff;
+			margin-right: 7px;
+		}
+	}
+}
